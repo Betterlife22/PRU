@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 6654350527228230559}
   - component: {fileID: 8685984599835784700}
   - component: {fileID: 2647879093408884659}
-  - component: {fileID: 675021676184250302}
   - component: {fileID: 6733181002334986965}
   m_Layer: 7
   m_Name: Bringer Of Death
@@ -341,49 +340,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!68 &675021676184250302
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557462338431996108}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -6.6500015, y: 0.9300003}
-  - {x: 2.0999985, y: 0.9300003}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!114 &6733181002334986965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,13 +355,13 @@ MonoBehaviour:
   damageableHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6557462338431996108}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 6654350527228230559}
+        m_TargetAssemblyTypeName: BringerOfDeath, Assembly-CSharp
         m_MethodName: 
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -483,7 +439,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -2.865629, y: -0.59324527}
+  m_Offset: {x: -3.3216684, y: -0.59324527}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -493,7 +449,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.850306, y: 2.765267}
+  m_Size: {x: 3.9382272, y: 2.765267}
   m_EdgeRadius: 0
 --- !u!114 &3541564373086039009
 MonoBehaviour:

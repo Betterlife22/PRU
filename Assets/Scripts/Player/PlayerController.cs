@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     TouchingDirection touchingDirection;
     public float jumpInpulse = 5f;
     Damageable damageable;
-
+    HealthSystem healthSystem;
     /// <summary>
     /// Is the player moving
     /// </summary>
@@ -183,5 +183,6 @@ public class PlayerController : MonoBehaviour
     {
         damageable.LockVelocity = true;
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocityY + knockback.y);
+        HealthSystem.Instance.TakeDamage(damage);
     }
 }

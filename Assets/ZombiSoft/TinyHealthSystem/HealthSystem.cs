@@ -17,21 +17,15 @@ public class HealthSystem : MonoBehaviour
 	public static HealthSystem Instance;
 
 	public Image currentHealthBar;
-	//public Image currentHealthGlobe;
 	public Text healthText;
 	public float hitPoint = 100f;
 	public float maxHitPoint = 100f;
-    public Animator animator;
-	//public Image currentManaBar;
-	//public Image currentManaGlobe;
-	//public Text manaText;
-	//public float manaPoint = 100f;
-	//public float maxManaPoint = 100f;
-	public Knockback knockback;
-    //==============================================================
-    // Regenerate Health & Mana
-    //==============================================================
-    public bool Regenerate = true;
+
+
+	//==============================================================
+	// Regenerate Health & Mana
+	//==============================================================
+	public bool Regenerate = true;
 	public float regen = 0.1f;
 	private float timeleft = 0.0f;	// Left time for current interval
 	public float regenUpdateInterval = 1f;
@@ -44,18 +38,16 @@ public class HealthSystem : MonoBehaviour
 	void Awake()
 	{
 		Instance = this;
-        knockback = GetComponentInChildren<Knockback>();
-
-    }
-
-    //==============================================================
-    // Awake
-    //==============================================================
-    void Start()
+	}
+	
+	//==============================================================
+	// Awake
+	//==============================================================
+  	void Start()
 	{
 		UpdateGraphics();
-		timeleft = regenUpdateInterval;
-    }
+		timeleft = regenUpdateInterval; 
+	}
 
 	//==============================================================
 	// Update
@@ -79,12 +71,10 @@ public class HealthSystem : MonoBehaviour
 			if (GodMode)
 			{
 				HealDamage(maxHitPoint);
-				//RestoreMana(maxManaPoint);
 			}
 			else
 			{
 				HealDamage(regen);
-				//RestoreMana(regen);				
 			}
 
 			UpdateGraphics();
@@ -103,22 +93,15 @@ public class HealthSystem : MonoBehaviour
 		healthText.text = hitPoint.ToString ("0") + "/" + maxHitPoint.ToString ("0");
 	}
 
-	private void UpdateHealthGlobe()
-	{
-		float ratio = hitPoint / maxHitPoint;
-		//currentHealthGlobe.rectTransform.localPosition = new Vector3(0, currentHealthGlobe.rectTransform.rect.height * ratio - currentHealthGlobe.rectTransform.rect.height, 0);
-		healthText.text = hitPoint.ToString("0") + "/" + maxHitPoint.ToString("0");
-	}
-
-	public void TakeDamage(float Damage, Vector2 hitDirection)
+	public void TakeDamage(float Damage)
 	{
 		hitPoint -= Damage;
 		if (hitPoint < 1)
 			hitPoint = 0;
+
 		UpdateGraphics();
 
-		knockback.CallKnockback(hitDirection, Vector2.up, 0);
-        //StartCoroutine(PlayerHurts());
+		StartCoroutine(PlayerHurts());
 	}
 
 	public void HealDamage(float Heal)
@@ -136,46 +119,6 @@ public class HealthSystem : MonoBehaviour
 		UpdateGraphics();
 	}
 
-	////==============================================================
-	//// Mana Logic
-	////==============================================================
-	//private void UpdateManaBar()
-	//{
-	//	float ratio = manaPoint / maxManaPoint;
-	//	currentManaBar.rectTransform.localPosition = new Vector3(currentManaBar.rectTransform.rect.width * ratio - currentManaBar.rectTransform.rect.width, 0, 0);
-	//	manaText.text = manaPoint.ToString ("0") + "/" + maxManaPoint.ToString ("0");
-	//}
-
-	//private void UpdateManaGlobe()
-	//{
-	//	float ratio = manaPoint / maxManaPoint;
-	//	currentManaGlobe.rectTransform.localPosition = new Vector3(0, currentManaGlobe.rectTransform.rect.height * ratio - currentManaGlobe.rectTransform.rect.height, 0);
-	//	manaText.text = manaPoint.ToString("0") + "/" + maxManaPoint.ToString("0");
-	//}
-
-	//public void UseMana(float Mana)
-	//{
-	//	manaPoint -= Mana;
-	//	if (manaPoint < 1) // Mana is Zero!!
-	//		manaPoint = 0;
-
-	//	UpdateGraphics();
-	//}
-
-	//public void RestoreMana(float Mana)
-	//{
-	//	manaPoint += Mana;
-	//	if (manaPoint > maxManaPoint) 
-	//		manaPoint = maxManaPoint;
-
-	//	UpdateGraphics();
-	//}
-	//public void SetMaxMana(float max)
-	//{
-	//	maxManaPoint += (int)(maxManaPoint * max / 100);
-		
-	//	UpdateGraphics();
-	//}
 
 	//==============================================================
 	// Update all Bars & Globes UI graphics
@@ -183,9 +126,6 @@ public class HealthSystem : MonoBehaviour
 	private void UpdateGraphics()
 	{
 		UpdateHealthBar();
-		//UpdateHealthGlobe();
-		//UpdateManaBar();
-		//UpdateManaGlobe();
 	}
 
 	//==============================================================
@@ -195,12 +135,10 @@ public class HealthSystem : MonoBehaviour
 	{
 		// Player gets hurt. Do stuff.. play anim, sound..
 
-
-		if (hitPoint < 1) 
+		if (hitPoint < 1) // Health is Zero!!
 		{
-			yield return StartCoroutine(PlayerDied()); 
-			animator.SetBool("IsDead", false);
-        }
+			yield return StartCoroutine(PlayerDied()); // Hero is Dead
+		}
 
 		else
 			yield return null;
@@ -211,7 +149,7 @@ public class HealthSystem : MonoBehaviour
 	//==============================================================
 	IEnumerator PlayerDied()
 	{
-        animator.SetBool("IsDead", true);
-        yield return null;
+
+		yield return null;
 	}
 }
