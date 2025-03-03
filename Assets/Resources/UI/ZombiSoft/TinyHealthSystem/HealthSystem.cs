@@ -27,7 +27,7 @@ public class HealthSystem : MonoBehaviour
 	//public Text manaText;
 	//public float manaPoint = 100f;
 	//public float maxManaPoint = 100f;
-	private Knockback knockback;
+	public Knockback knockback;
     //==============================================================
     // Regenerate Health & Mana
     //==============================================================
@@ -44,7 +44,7 @@ public class HealthSystem : MonoBehaviour
 	void Awake()
 	{
 		Instance = this;
-        knockback = GetComponent<Knockback>();
+        knockback = GetComponentInChildren<Knockback>();
 
     }
 

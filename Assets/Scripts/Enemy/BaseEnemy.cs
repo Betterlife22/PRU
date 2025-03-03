@@ -11,16 +11,7 @@ public class EnemyAI : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
-    {
-        Debug.Log("Enemy hit");
-        animator.SetTrigger("GetHurt");
-        currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
+
     void Die()
     {
         Debug.Log("Enemy Die");
