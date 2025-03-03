@@ -1,18 +1,86 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private Transform groundCheck;
-    private Animator animator;
-    private bool isGrounded;
-    private Rigidbody2D rb;
+    public float runSpeed = 5f;
+    public float airSpeed = 2.5f;
+    Vector2 moveInput;
+    TouchingDirection touchingDirection;
+    public float jumpInpulse = 5f;
+    Damageable damageable;
+    HealthSystem healthSystem;
+    /// <summary>
+    /// Is the player moving
+    /// </summary>
+    [SerializeField]
+    public bool _isMoving = false;
+    public bool IsMoving
+    {
+        get
+        {
+            return _isMoving;
+        }
+        private set
+        {
+            _isMoving = value;
+            animator.SetBool(AnimationStrings.isMoving, value);
+        }
+    }
+
+    /// <summary>
+    /// Is the player facing right
+    /// </summary>
+    private bool _isFacingRight = true;
+    public bool IsFacingRight
+    {
+        get
+        {
+            return _isFacingRight;
+        }
+        private set
+        {
+            if (_isFacingRight != value)
+            {
+                _isFacingRight = value;
+                transform.localScale *= new Vector2(-1, 1);
+            }
+
+            _isFacingRight = value;
+        }
+    }
+
+    /// <summary>
+    /// Can the player move
+    /// </summary>
+    public bool CanMove
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.canMove);
+        }
+    }
+
+    /// <summary>
+    /// Is the player alive
+    /// </summary>
+    public bool IsAlive
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.isAlive);
+        }
+    }
+
+    Rigidbody2D rb;
+    Animator animator;
     private void Awake()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        touchingDirection = GetComponent<TouchingDirection>();
+        damageable = GetComponent<Damageable>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,39 +91,98 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleMovement();
-        HandleJump();
-        UpdateAnimation();
-    }
-    private void HandleMovement()
-    {
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        if (moveInput > 0) transform.localScale = new Vector3(1, 1, 1);
-        else if (moveInput < 0) transform.localScale = new Vector3(-1, 1, 1);
     }
 
-    private void HandleJump()
+    public float CurrentMoveSpeed
     {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        get
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            if (CanMove)
+            {
+                if (touchingDirection.IsGrounded)
+                {
+
+                    if (IsMoving && !touchingDirection.IsOnWall)
+                    {
+                        return runSpeed;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    return airSpeed;
+                }
+            }
+            else
+            { 
+                return 0; 
+            }
         }
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
-    private void UpdateAnimation()
+
+    private void FixedUpdate()
     {
-        bool isRunning = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
-        bool isJumping = !isGrounded;
-
-
-        animator.SetBool("IsRunning", isRunning);
-        animator.SetBool("IsJumping", isJumping);
-
-        if (Input.GetMouseButtonDown(0))
+        if (!damageable.LockVelocity)
         {
-            animator.SetTrigger("Attack");
+            rb.linearVelocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.linearVelocity.y);
         }
+        animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocityY);
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+
+        if (IsAlive)
+        {
+            IsMoving = moveInput != Vector2.zero;
+
+            SetFacingDirection(moveInput);
+        }
+        else
+        {
+            IsMoving = false;
+        }
+      
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.started && touchingDirection.IsGrounded && CanMove)
+        {
+            animator.SetTrigger(AnimationStrings.jumpTrigger);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpInpulse);
+        }
+    }
+
+    private void SetFacingDirection(Vector2 moveInput)
+    {
+        if (moveInput.x > 0 && !IsFacingRight)
+        {
+            IsFacingRight = true;
+        }
+        else if (moveInput.x < 0 && IsFacingRight)
+        {
+            IsFacingRight = false;
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            animator.SetTrigger(AnimationStrings.attackTrigger);
+        }
+    }
+
+    public void OnHit(int damage, Vector2 knockback)
+    {
+        damageable.LockVelocity = true;
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocityY + knockback.y);
+        HealthSystem.Instance.TakeDamage(damage);
     }
 }
