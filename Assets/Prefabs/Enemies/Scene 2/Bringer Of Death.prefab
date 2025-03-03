@@ -266,8 +266,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00965476, y: -0.23776948}
-  m_Size: {x: 2.3549733, y: 3.3958304}
+  m_Offset: {x: -0.03499241, y: -0.22810334}
+  m_Size: {x: 2.5069985, y: 3.4151623}
   m_Direction: 0
 --- !u!114 &6654350527228230559
 MonoBehaviour:
@@ -284,6 +284,7 @@ MonoBehaviour:
   speed: 1
   rb: {fileID: 0}
   attackZone: {fileID: 3541564373086039009}
+  cliffDetection: {fileID: 4360031613101833154}
   walkStopRate: 0.02
   _hasTarget: 0
 --- !u!114 &8685984599835784700
@@ -312,7 +313,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  groundDistance: 0.05
+  groundDistance: 0.1
   wallDistance: 0.1
   ceilingDistance: 0.1
   _isGrounded: 1
@@ -397,7 +398,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6557462338431996108}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _maxHealth: 100
   _health: 100
   _isAlive: 1
@@ -522,7 +535,7 @@ Transform:
   m_GameObject: {fileID: 8742852137089022541}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.79, y: -2.2, z: 0}
+  m_LocalPosition: {x: -2.02, y: -2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
