@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Enemy
+  - ManaSprite
+  - HealthSprite
   layers:
   - Default
   - TransparentFX
@@ -13,11 +14,11 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemies
+  - Player
+  - PlayerHitBox
+  - EnemyHitBox
+  - GroundDetection
   - 
   - 
   - 
@@ -42,17 +43,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BG2
-    uniqueID: 3063489795
+  - name: 4Ground
+    uniqueID: 250066149
     locked: 0
-  - name: SecondBG
-    uniqueID: 2131834137
+  - name: ThirdGround
+    uniqueID: 4059384159
+    locked: 0
+  - name: Background
+    uniqueID: 1924020545
     locked: 0
   - name: Ground
-    uniqueID: 2204657209
+    uniqueID: 2507628223
     locked: 0
-  - name: Enemy
-    uniqueID: 361495265
+  - name: Enemies
+    uniqueID: 4227374243
     locked: 0
   - name: Player
     uniqueID: 649287081
