@@ -1,45 +1,37 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
-public class SC_BackgroundScaler : MonoBehaviour
+public class SC_BackgroundDarkener : MonoBehaviour
 {
-    private Image backgroundImage;
+    private Image bgImage;
+    [Range(0f, 0.5f)] public float darkenAmount = 0.2f; // Giảm bớt độ tối
+    [Range(0f, 0.3f)] public float desaturationAmount = 0.1f; // Giảm màu nhẹ hơn
     private RectTransform rt;
-    private float ratio;
-    public float scrollSpeed = 3f; // Tốc độ cuộn
-    private float imageWidth;
+    public float shakeAmount = 20f; // Mức độ rung
 
     void Start()
     {
-        backgroundImage = GetComponent<Image>();
-        rt = backgroundImage.rectTransform;
-        ratio = backgroundImage.sprite.bounds.size.x / backgroundImage.sprite.bounds.size.y;
-        imageWidth = rt.sizeDelta.x;
+        bgImage = GetComponent<Image>();
+        ApplyDarkGothicEffect();
+        rt = GetComponent<RectTransform>();
     }
 
     void Update()
     {
-        if (!rt)
-            return;
+        float x = Mathf.Sin(Time.time * 3) * shakeAmount;
+        float y = Mathf.Cos(Time.time * 3) * shakeAmount;
+        rt.anchoredPosition += new Vector2(x, y) * Time.deltaTime;
+    }
 
-        // Scale image proportionally to fit the screen dimensions, while preserving aspect ratio
-        if (Screen.height * ratio >= Screen.width)
-        {
-            rt.sizeDelta = new Vector2(Screen.height * ratio, Screen.height);
-        }
-        else
-        {
-            rt.sizeDelta = new Vector2(Screen.width, Screen.width / ratio);
-        }
+    void ApplyDarkGothicEffect()
+    {
+        Color color = bgImage.color;
 
-        // Di chuyển hình ảnh sang trái
-        rt.anchoredPosition += Vector2.left * scrollSpeed * Time.deltaTime;
+        // Giảm sáng nhưng giữ lại độ chi tiết
+        color.r = Mathf.Lerp(color.r, 0.6f, darkenAmount);
+        color.g = Mathf.Lerp(color.g, 0.6f, darkenAmount * (1 - desaturationAmount));
+        color.b = Mathf.Lerp(color.b, 0.6f, darkenAmount);
 
-        // Nếu hình ảnh đã ra khỏi màn hình, đặt lại vị trí
-        if (rt.anchoredPosition.x < -imageWidth)
-        {
-            rt.anchoredPosition += new Vector2(imageWidth, 0); // Đặt lại vị trí sang phải
-        }
+        bgImage.color = color;
     }
 }
