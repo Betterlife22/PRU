@@ -52,6 +52,18 @@ TagManager:
   - name: Background
     uniqueID: 1924020545
     locked: 0
+<<<<<<< Updated upstream
+=======
+  - name: 4Ground
+    uniqueID: 1661581143
+    locked: 0
+  - name: ThirdGround
+    uniqueID: 44208133
+    locked: 0
+  - name: 2Ground
+    uniqueID: 703352921
+    locked: 0
+>>>>>>> Stashed changes
   - name: Ground
     uniqueID: 2507628223
     locked: 0
@@ -61,5 +73,14 @@ TagManager:
   - name: Player
     uniqueID: 649287081
     locked: 0
+<<<<<<< Updated upstream
+=======
+  - name: Enemies
+    uniqueID: 4227374243
+    locked: 0
+  - name: Grass Background
+    uniqueID: 3821182523
+    locked: 0
+>>>>>>> Stashed changes
   m_RenderingLayers:
   - Default

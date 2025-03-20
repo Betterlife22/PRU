@@ -125,7 +125,7 @@ public class BringerOfDeath : MonoBehaviour
             WalkDirection = WalkableDirection.Right;
         }
         else if (WalkDirection == WalkableDirection.Right)
-        {
+        {   
             WalkDirection = WalkableDirection.Left;
         }
     }
