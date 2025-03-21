@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float jumpInpulse = 5f;
     Damageable damageable;
     HealthSystem healthSystem;
+    public GameObject Portal;
+    
     /// <summary>
     /// Is the player moving
     /// </summary>
@@ -91,7 +93,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int enemyCount = GameObject.FindGameObjectsWithTag("Enemies").Length;
 
+        if (enemyCount <= 0)
+        {
+            Portal.SetActive(true);
+        }
     }
 
     public float CurrentMoveSpeed
