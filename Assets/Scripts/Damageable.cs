@@ -39,7 +39,7 @@ public class Damageable : MonoBehaviour
         {
             _health = value;
             if (_health <= 0)
-            {
+            {               
                 IsAlive = false;
             }
         }

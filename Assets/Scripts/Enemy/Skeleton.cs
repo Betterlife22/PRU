@@ -10,6 +10,7 @@ public class Skeleton : MonoBehaviour
     Animator animator;
     public float walkStopRate = 0.05f;
     Damageable damageable;
+
     public enum WalkableDirection
     {
         Left,
@@ -98,6 +99,7 @@ public class Skeleton : MonoBehaviour
         {
             AttackCooldown -= Time.deltaTime;
         }
+        
     }
 
     private void FixedUpdate()
@@ -138,5 +140,5 @@ public class Skeleton : MonoBehaviour
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocityY + knockback.y);
     }
 
-   
+    
 }
