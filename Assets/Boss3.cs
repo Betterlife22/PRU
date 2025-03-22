@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Boss3 : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class Boss3 : MonoBehaviour
     Animator animator;
     public float walkStopRate = 0.05f;
     Damageable damageable;
+    public bool isUsingKick = false;
     public enum WalkableDirection
     {
         Left,
@@ -99,6 +100,11 @@ public class Boss3 : MonoBehaviour
         {
             AttackCooldown -= Time.deltaTime;
         }
+
+        if (damageable.Health <= damageable.MaxHealth * 0.5f && !isUsingKick)
+        {
+            SwitchToKickMode();
+        }
     }
 
     private void FixedUpdate()
@@ -137,5 +143,13 @@ public class Boss3 : MonoBehaviour
     public void OnHit(int damage, Vector2 knockback)
     {
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocityY + knockback.y);
+    }
+
+    private void SwitchToKickMode()
+    {
+        isUsingKick = true;
+        animator.SetBool("Phase", true); // Bật animation đá
+        speed += 1.5f; // Tăng tốc độ di chuyển
+        Debug.Log("Boss chuyển sang chế độ đá!");
     }
 }
