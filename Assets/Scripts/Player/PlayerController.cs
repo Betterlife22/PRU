@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     HealthSystem healthSystem;
     public GameObject Portal;
     public GameObject PortalScene;
+    public GameObject VictoryPannel;
     
     /// <summary>
     /// Is the player moving
@@ -104,8 +106,22 @@ public class PlayerController : MonoBehaviour
         int Boss = GameObject.FindGameObjectsWithTag("Boss").Length;
         if (Boss <= 0)
         {
-            PortalScene.SetActive(true);
+            if (PortalScene != null)
+            {
+                PortalScene.SetActive(true);
+            }
+            if (VictoryPannel != null)
+            {
+                VictoryPannel.SetActive(true);
+                damageable.LockVelocity = true;
+                if(Input.anyKeyDown)
+                {
+                    SceneManager.LoadScene("Menu");
+                }
+                
+            }
         }
+        
     }
 
     public float CurrentMoveSpeed
