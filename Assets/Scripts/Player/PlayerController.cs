@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     Damageable damageable;
     HealthSystem healthSystem;
     public GameObject Portal;
+    public GameObject PortalScene;
     
     /// <summary>
     /// Is the player moving
@@ -98,6 +99,12 @@ public class PlayerController : MonoBehaviour
         if (enemyCount <= 0)
         {
             Portal.SetActive(true);
+        }
+
+        int Boss = GameObject.FindGameObjectsWithTag("Boss").Length;
+        if (Boss <= 0)
+        {
+            PortalScene.SetActive(true);
         }
     }
 

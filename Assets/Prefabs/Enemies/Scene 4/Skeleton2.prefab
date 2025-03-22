@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 170920880532935037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.896, y: -0.045, z: 0}
+  m_LocalPosition: {x: 0.706, y: -0.098, z: 0}
   m_LocalScale: {x: 0.15279008, y: 0.18729046, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 1209705979860649966}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.161, y: -0.48, z: 0}
+  m_LocalPosition: {x: 0.274, y: -0.553, z: 0}
   m_LocalScale: {x: 0.15279008, y: 0.18729046, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -172,7 +172,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.121576786, y: 0.0948831}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -182,7 +182,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7568464, y: 0.70480895}
   m_EdgeRadius: 0
 --- !u!1 &2982905353269182780
 GameObject:
@@ -263,22 +263,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.645862, y: -0.50153315}
-      - {x: 2.4490707, y: -0.554435}
-      - {x: 2.2224648, y: -0.4834571}
-      - {x: 2.155892, y: -0.5015266}
-      - {x: 2.401472, y: -0.5471714}
-      - {x: 2.1945164, y: -0.5365288}
-      - {x: 1.9556035, y: -0.51643443}
-      - {x: 2.1287062, y: -0.49227467}
-      - {x: 1.7285502, y: -0.5016221}
-      - {x: 1.4569411, y: -0.43967506}
-      - {x: 0.2791101, y: -0.3971183}
-      - {x: -0.6672169, y: -0.46767792}
-      - {x: -0.44275415, y: -0.6004191}
-      - {x: 3.3508308, y: -0.90080833}
-      - {x: 3.6987278, y: -0.5680325}
-      - {x: 3.5549128, y: -0.47960097}
+    - - {x: 2.1690986, y: -0.83997524}
+      - {x: 1.7948859, y: -0.8082664}
+      - {x: 1.9563553, y: -0.79017025}
+      - {x: 1.9674158, y: -0.80823976}
+      - {x: 1.769465, y: -0.80100346}
+      - {x: 1.6733977, y: -0.7374785}
+      - {x: 1.7671045, y: -0.7702658}
+      - {x: 1.9956629, y: -0.80956393}
+      - {x: 1.6176618, y: -0.7554541}
+      - {x: 1.2351869, y: -0.8098461}
+      - {x: 0.2902103, y: -0.77786607}
+      - {x: -0.67829436, y: -0.75323826}
+      - {x: -1.4841822, y: -0.7897827}
+      - {x: -1.6956683, y: -0.960014}
+      - {x: 2.0868392, y: -1.1863687}
+      - {x: 2.456914, y: -1.043967}
+      - {x: 2.47942, y: -1.0084171}
   m_UseDelaunayMesh: 0
 --- !u!114 &1100188094763683161
 MonoBehaviour:
@@ -312,7 +313,7 @@ GameObject:
   - component: {fileID: 5262998477592245841}
   m_Layer: 7
   m_Name: Skeleton2
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,8 +452,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.002315416, y: -0.12114894}
-  m_Size: {x: 0.14882739, y: 0.610292}
+  m_Offset: {x: -0.19610633, y: -0.14887036}
+  m_Size: {x: 0.19417962, y: 0.66573495}
   m_Direction: 0
 --- !u!114 &8433206019584330412
 MonoBehaviour:
@@ -467,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  rb: {fileID: 0}
+  rb: {fileID: 6540138554818065416}
   attackZone: {fileID: 8570115841426941832}
   cliffDetection: {fileID: 2538532319384249295}
   walkStopRate: 0.02

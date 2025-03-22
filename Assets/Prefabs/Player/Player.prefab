@@ -246,6 +246,7 @@ MonoBehaviour:
   runSpeed: 5
   airSpeed: 3.5
   jumpInpulse: 10
+  Portal: {fileID: 0}
   _isMoving: 0
 --- !u!95 &9054114969615997390
 Animator:
