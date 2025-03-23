@@ -15207,7 +15207,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _maxHealth: 500
-  _health: 10
+  _health: 200
   _isAlive: 1
   isInvincible: 0
   invincibilityTimer: 0.2
