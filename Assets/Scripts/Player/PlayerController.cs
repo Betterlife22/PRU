@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Portal;
     public GameObject PortalScene;
     private GameManager gameManager;
+    public GameObject VictoryPannel;
 
     /// <summary>
     /// Is the player moving
@@ -116,7 +117,20 @@ public class PlayerController : MonoBehaviour
         int Boss = GameObject.FindGameObjectsWithTag("Boss").Length;
         if (Boss <= 0)
         {
-            PortalScene.SetActive(true);
+            if (PortalScene != null)
+            {
+                PortalScene.SetActive(true);
+            }
+            if (VictoryPannel != null)
+            {
+                VictoryPannel.SetActive(true);
+                damageable.LockVelocity = true;
+                if(Input.anyKeyDown)
+                {
+                    SceneManager.LoadScene("Menu");
+                }
+                
+            }
         }
         if (transform.position.y < fallThreshold)
         {
