@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  rb: {fileID: 0}
+  rb: {fileID: 5284109004301833493}
   attackZone: {fileID: 3541564373086039009}
   cliffDetection: {fileID: 4360031613101833154}
   walkStopRate: 0.02
