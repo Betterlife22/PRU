@@ -1,9 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public float fallThreshold = -20f;
     public float runSpeed = 5f;
     public float airSpeed = 2.5f;
     Vector2 moveInput;
@@ -13,7 +15,8 @@ public class PlayerController : MonoBehaviour
     HealthSystem healthSystem;
     public GameObject Portal;
     public GameObject PortalScene;
-    
+    private GameManager gameManager;
+
     /// <summary>
     /// Is the player moving
     /// </summary>
@@ -84,11 +87,20 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         touchingDirection = GetComponent<TouchingDirection>();
         damageable = GetComponent<Damageable>();
+        gameManager = FindFirstObjectByType<GameManager>();
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
+    }
+    void GameOver()
+    {
+        if (gameManager != null)
+        {
+            gameManager.GameOver();
+        }
     }
 
     // Update is called once per frame
@@ -105,6 +117,11 @@ public class PlayerController : MonoBehaviour
         if (Boss <= 0)
         {
             PortalScene.SetActive(true);
+        }
+        if (transform.position.y < fallThreshold)
+        {
+            Debug.Log("Player has fallen below the threshold: " + transform.position.y);
+            GameOver();
         }
     }
 
