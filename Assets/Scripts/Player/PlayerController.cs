@@ -137,6 +137,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player has fallen below the threshold: " + transform.position.y);
             GameOver();
         }
+        if (!IsAlive)
+        {
+            Debug.Log("Player Dead: ");
+            GameOver();
+        }
     }
 
     public float CurrentMoveSpeed
