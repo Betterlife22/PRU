@@ -6,11 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tung.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Trung.unity
+    guid: 359de31eeffa4124a86b2ccb848327f4
   - enabled: 1
     path: Assets/Scenes/Hung.unity
     guid: 5f79dd0be9206bc4383ca88c35962170
+  - enabled: 1
+    path: Assets/Scenes/Quang.unity
+    guid: ce13fd71db3763647932e3ce7b38fc38
+  - enabled: 1
+    path: Assets/Scenes/Trung.unity
+    guid: 359de31eeffa4124a86b2ccb848327f4
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 05d6174bcd74e8445abf37c9d4a742ac
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

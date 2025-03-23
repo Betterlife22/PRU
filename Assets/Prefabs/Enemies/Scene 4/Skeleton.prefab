@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3983417916498657782}
   m_Layer: 7
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 4779864613860888886}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.07, y: 1.6, z: 0}
-  m_LocalScale: {x: -4.3995, y: 3.762605, z: 1}
+  m_LocalPosition: {x: 160.804, y: 17.4211, z: 0}
+  m_LocalScale: {x: -1.487691, y: 1.280765, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5548200388696869187}
@@ -179,8 +179,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.002315416, y: -0.12114894}
-  m_Size: {x: 0.14882739, y: 0.610292}
+  m_Offset: {x: -0.62384814, y: -0.5357971}
+  m_Size: {x: 0.55022055, y: 1.9572407}
   m_Direction: 0
 --- !u!114 &5134636212963011073
 MonoBehaviour:
@@ -291,7 +291,7 @@ Transform:
   m_GameObject: {fileID: 4957086865573385084}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.183, y: -0.492, z: 0}
+  m_LocalPosition: {x: 1.304, y: -1.696, z: 0}
   m_LocalScale: {x: 0.15279008, y: 0.18729046, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -344,7 +344,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.41975635, y: 0.10475993}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -354,7 +354,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.561761, y: 2.0928977}
   m_EdgeRadius: 0
 --- !u!1 &5285289068433748791
 GameObject:
@@ -423,7 +423,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -3.5478008, y: -0.59324527}
+  m_Offset: {x: -2.5017974, y: -3.3245163}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -433,7 +433,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.4859624, y: 2.765267}
+  m_Size: {x: 11.342571, y: 8.22781}
   m_EdgeRadius: 0
 --- !u!114 &3404173654231393420
 MonoBehaviour:
@@ -527,20 +527,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3903811, y: 1.7694525}
-      - {x: -0.42154008, y: 2.1837876}
-      - {x: 1.4022892, y: 0.7009325}
-      - {x: 1.3926744, y: 0.7589247}
-      - {x: 1.5412188, y: 0.5884502}
-      - {x: 1.8565607, y: 0.2693962}
-      - {x: 1.7847338, y: 0.124657154}
-      - {x: 1.8211412, y: -0.035904527}
-      - {x: 1.8888078, y: -0.31944856}
-      - {x: 1.4016728, y: -0.72083807}
-      - {x: 0.5061941, y: -0.9530066}
-      - {x: 2.6903, y: -1.1295128}
-      - {x: 2.6821227, y: -0.37312132}
-      - {x: 2.0626493, y: 0.46573788}
+    - - {x: -1.9812305, y: 5.242475}
+      - {x: -0.0904583, y: 3.8380973}
+      - {x: 0.92063636, y: 3.3535354}
+      - {x: 1.6635412, y: 2.5843728}
+      - {x: 2.7151093, y: 1.5867435}
+      - {x: 4.625779, y: 0.18383092}
+      - {x: 4.433522, y: -0.10352486}
+      - {x: 5.1923084, y: -1.6331707}
+      - {x: 4.2968035, y: -2.8579645}
+      - {x: 2.726067, y: -3.0026424}
+      - {x: -0.99938226, y: -3.866631}
+      - {x: 6.86769, y: -5.0679245}
+      - {x: 8.199055, y: -3.6506736}
+      - {x: 6.3013096, y: -0.6511818}
+      - {x: 3.243905, y: 2.011289}
+      - {x: 1.6006695, y: 3.3241556}
+      - {x: -0.5455934, y: 4.8261156}
   m_UseDelaunayMesh: 0
 --- !u!114 &8641674765288855238
 MonoBehaviour:

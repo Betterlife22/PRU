@@ -1,9 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public float fallThreshold = -20f;
     public float runSpeed = 5f;
     public float airSpeed = 2.5f;
     Vector2 moveInput;
@@ -12,7 +14,10 @@ public class PlayerController : MonoBehaviour
     Damageable damageable;
     HealthSystem healthSystem;
     public GameObject Portal;
-    
+    public GameObject PortalScene;
+    private GameManager gameManager;
+    public GameObject VictoryPannel;
+
     /// <summary>
     /// Is the player moving
     /// </summary>
@@ -83,11 +88,20 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         touchingDirection = GetComponent<TouchingDirection>();
         damageable = GetComponent<Damageable>();
+        gameManager = FindFirstObjectByType<GameManager>();
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
+    }
+    void GameOver()
+    {
+        if (gameManager != null)
+        {
+            gameManager.GameOver();
+        }
     }
 
     // Update is called once per frame
@@ -98,6 +112,35 @@ public class PlayerController : MonoBehaviour
         if (enemyCount <= 0)
         {
             Portal.SetActive(true);
+        }
+
+        int Boss = GameObject.FindGameObjectsWithTag("Boss").Length;
+        if (Boss <= 0)
+        {
+            if (PortalScene != null)
+            {
+                PortalScene.SetActive(true);
+            }
+            if (VictoryPannel != null)
+            {
+                VictoryPannel.SetActive(true);
+                damageable.LockVelocity = true;
+                if(Input.anyKeyDown)
+                {
+                    SceneManager.LoadScene("Menu");
+                }
+                
+            }
+        }
+        if (transform.position.y < fallThreshold)
+        {
+            Debug.Log("Player has fallen below the threshold: " + transform.position.y);
+            GameOver();
+        }
+        if (!IsAlive)
+        {
+            Debug.Log("Player Dead: ");
+            GameOver();
         }
     }
 
