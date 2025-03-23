@@ -100,11 +100,6 @@ public class Boss1 : MonoBehaviour
         {
             AttackCooldown -= Time.deltaTime;
         }
-
-        if (HasTarget && AttackCooldown <= 0)
-        {
-            PerformAttack();
-        }
     }
 
     private void FixedUpdate()
@@ -126,17 +121,6 @@ public class Boss1 : MonoBehaviour
             }
         }
 
-    }
-
-    public void PerformAttack()
-    {
-        if (AttackCooldown <= 0)
-        {
-            int attackType = UnityEngine.Random.Range(0, 2); // Random 0 hoặc 1
-            animator.SetInteger("attackType", attackType);
-            animator.SetTrigger("Attack");
-            AttackCooldown = 2f; // Set cooldown, tùy chỉnh theo gameplay
-        }
     }
 
 

@@ -16,7 +16,7 @@ MonoBehaviour:
   volume: 1
   playOnEnter: 1
   playOnExit: 0
-  playerAfterDelay: 0
+  playAfterDelay: 0
   playDelay: 0.25
 --- !u!1102 &-6860678039392077140
 AnimatorState:
@@ -458,7 +458,7 @@ MonoBehaviour:
   volume: 1
   playOnEnter: 1
   playOnExit: 0
-  playerAfterDelay: 0
+  playAfterDelay: 0
   playDelay: 0.25
 --- !u!114 &4295883746310032221
 MonoBehaviour:
@@ -476,7 +476,7 @@ MonoBehaviour:
   volume: 1
   playOnEnter: 1
   playOnExit: 0
-  playerAfterDelay: 0
+  playAfterDelay: 0
   playDelay: 0.25
 --- !u!1101 &5401632447755022046
 AnimatorStateTransition:
@@ -533,12 +533,12 @@ AnimatorStateMachine:
   - {fileID: 5401632447755022046}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -2211642282836825210}
-    second:
-    - {fileID: -3301689767701243571}
   - first: {fileID: -3383651943765273879}
     second:
     - {fileID: 2545120050663005805}
+  - first: {fileID: -2211642282836825210}
+    second:
+    - {fileID: -3301689767701243571}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 730, y: 200, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -698,7 +698,7 @@ MonoBehaviour:
   volume: 1
   playOnEnter: 1
   playOnExit: 0
-  playerAfterDelay: 0
+  playAfterDelay: 0
   playDelay: 0.25
 --- !u!114 &8778321212578839177
 MonoBehaviour:
