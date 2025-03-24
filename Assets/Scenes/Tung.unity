@@ -15008,6 +15008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e88c7b568ae13459f4d1c4ab16f1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1939050638}
+  manager: {fileID: 620073281}
 --- !u!61 &142916734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15999,6 +16001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e88c7b568ae13459f4d1c4ab16f1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1939050638}
+  manager: {fileID: 620073281}
 --- !u!61 &551460391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16033,7 +16037,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 19.997635, y: 0}
+  m_Offset: {x: 19.997635, y: 0.035943866}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16043,7 +16047,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.064453, y: 1}
+  m_Size: {x: 6.064453, y: 1.0718877}
   m_EdgeRadius: 0
 --- !u!4 &551460392
 Transform:
@@ -16293,6 +16297,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &620073281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4519336730551530455, guid: a812920045e9565439e58842ad0ebadb, type: 3}
+  m_PrefabInstance: {fileID: 517922591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968cff3bc0533fd41a7da99c725f49e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &647276779
 GameObject:
   m_ObjectHideFlags: 0
@@ -25814,6 +25829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e88c7b568ae13459f4d1c4ab16f1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1939050638}
+  manager: {fileID: 620073281}
 --- !u!61 &930699258
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36089,6 +36106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e88c7b568ae13459f4d1c4ab16f1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!61 &1927246726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36150,6 +36169,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1939050638 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9054114969615997390, guid: 51c3a7be5e1b7a54bb6d88945c3f2af1, type: 3}
+  m_PrefabInstance: {fileID: 6875704428239378784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2014046409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3943142483993061762, guid: 610092901fa3edb4a8cbadc2ec65a36a, type: 3}
