@@ -327,7 +327,7 @@ MonoBehaviour:
   volume: 1
   playOnEnter: 1
   playOnExit: 0
-  playerAfterDelay: 0
+  playAfterDelay: 0
   playDelay: 0.25
 --- !u!1102 &1452874571858977665
 AnimatorState:
@@ -488,7 +488,7 @@ MonoBehaviour:
   volume: 1
   playOnEnter: 1
   playOnExit: 0
-  playerAfterDelay: 0
+  playAfterDelay: 0
   playDelay: 0.25
 --- !u!114 &5538744292489908167
 MonoBehaviour:
@@ -506,7 +506,7 @@ MonoBehaviour:
   volume: 1
   playOnEnter: 1
   playOnExit: 0
-  playerAfterDelay: 0
+  playAfterDelay: 0
   playDelay: 0.25
 --- !u!1101 &5711138439097800156
 AnimatorStateTransition:
