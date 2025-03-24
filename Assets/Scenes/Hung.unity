@@ -34359,11 +34359,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3923751741863278111, guid: a665aa36c80cee846a64c1bf73a68a27, type: 3}
   m_PrefabInstance: {fileID: 5399902669869199028}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &2130460935 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 5284109004301833493, guid: a665aa36c80cee846a64c1bf73a68a27, type: 3}
-  m_PrefabInstance: {fileID: 5399902669869199028}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2136346387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34608,10 +34603,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bringer Of Death
       objectReference: {fileID: 0}
-    - target: {fileID: 6654350527228230559, guid: a665aa36c80cee846a64c1bf73a68a27, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 2130460935}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

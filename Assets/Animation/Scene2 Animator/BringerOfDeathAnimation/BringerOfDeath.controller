@@ -280,7 +280,6 @@ AnimatorState:
   - {fileID: 8299960117175425616}
   m_StateMachineBehaviours:
   - {fileID: -1677921391286646708}
-  - {fileID: 6787782445605617158}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -311,7 +310,7 @@ MonoBehaviour:
   volume: 1
   playOnEnter: 1
   playOnExit: 0
-  playerAfterDelay: 0
+  playAfterDelay: 0
   playDelay: 0.25
 --- !u!91 &9100000
 AnimatorController:
@@ -407,32 +406,6 @@ MonoBehaviour:
   playOnExit: 0
   playAfterDelay: 0
   playDelay: 0.25
---- !u!1102 &1809466411620482061
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Idle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 890c5833f64f429459ab4356e2b8f775, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!114 &1851660598319818417
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -554,9 +527,6 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 1809466411620482061}
-    m_Position: {x: 820, y: 50, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 6131620050923165963}
     m_Position: {x: 520, y: 120, z: 0}
   - serializedVersion: 1
@@ -574,13 +544,13 @@ AnimatorStateMachine:
   - {fileID: 2055422620785790030}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -1452642126438012087}
-    second:
-    - {fileID: -7613207857047469247}
   - first: {fileID: 8898519901638871202}
     second:
     - {fileID: -2328928408341081327}
     - {fileID: -6312607418425884158}
+  - first: {fileID: -1452642126438012087}
+    second:
+    - {fileID: -7613207857047469247}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 540, y: -10, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -625,7 +595,7 @@ MonoBehaviour:
   volume: 1
   playOnEnter: 1
   playOnExit: 0
-  playerAfterDelay: 0
+  playAfterDelay: 0
   playDelay: 0.25
 --- !u!1107 &8898519901638871202
 AnimatorStateMachine:
